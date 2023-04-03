@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Quick Sort</title>
+  <link rel="stylesheet" href="../../css/all.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <link rel="icon" type="image/x-icon" href="/img/network.ico">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <!-- <script src="./js/jquery.transit.min.js"></script> -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <link rel="stylesheet" href="../../css/control.css">
+  <link rel="stylesheet" href="../../css/sort.css">
+</head>
+
+<body>
+  <div class="ui inverted menu">
+    <a class="item" href="./index.html">
+      Back Home
+    </a>
+  </div>
+  <div class="page">
+    <div class="content">
+      <div id="quick">
+        <h1>Quick Sort</h1>
+        <p><b>Quick sort</b> is sometimes called <b>partition-exchange sort</b>. It is an efficient, general-purpose and divide-and-conquer sorting algorithm. 
+          Overall, it is slightly faster than <a href="/Merge%20Sort">merge sort</a> and <a href="/Heap%20Sort">heap sort</a> for randomized data, particularly on larger distributions.
+        </p>
+        <p>
+          This sorting algorithm is based on a partitioning routine. First to <mark>pick a value, called a <b>pivot</b></mark>, that occurs in the range (the precise manner of 
+          choosing depends on the partition routine, and can involve randomness). Second to <mark>reorder it's elements, while determining a point of division</mark>, so that 
+          all elements with <mark>values less than the pivot come before the division</mark>, while all elements with <mark>values greater than the pivot come after it</mark>; elements that 
+          are equal to the pivot can go either way. Since at least one instance of the pivot is present, most partition routines ensure that the value that ends up 
+          at the point of division is equal to the pivot, and is now in its final position. Recursively apply same steps to the sub-range up to the point of division 
+          and to the sub-range after it, possibly excluding from both ranges the element equal to the pivot at the point of division.
+        </p>
+        <b><p>Complexity</p></b>
+        <ul>
+          <b><li>Worst-case Performance: &#927(n&#178;)</li></b>
+          <b><li>Best-case Performance: &#927(nlogn)</li></b>
+          <b><li>Average Performance: &#927(nlogn)</li></b>
+        </ul>
+      </div>
+    </div>
+    <div class="display">
+      <div id="control-container">
+        <div class="btn-group">
+          <button type="button" class="btn new-button">&#10227 Generate New</button>
+          <button type="button" class="btn start-button">&#9205 Run</button>
+          <!-- Hidden Btn-->
+          <button type="button" class="btn restart-button" style="display:none">&#9209 Restart</button>
+          <button type="button" class="btn pause-button" style="display:none">&#9208 Pause</button>
+          <button type="button" class="btn resume-button" style="display:none">&#9199 Resume</button>
+        </div>
+        <div class="select-group">
+          <label for="speed">Select A Speed</label>
+          <select name="speed" id="speed">
+            <option class="speed1" value="1000">&#128012 Slow</option>
+            <option class="speed2" value="500" selected="selected">&#128099 Normal</option>
+            <option class="speed3" value="100">&#128663 Fast</option>
+            <option class="speed4" value="0">&#128640 Ludicrous</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <p>
+            <span>Array Size =></span>
+            <span class="size-value"></span>
+          </p>
+          <input id="size-slider" type="range" min="5" max="100" step=1 value="30">  
+        </div>
+        <div class="input-group">
+          <p>
+            <span>Number Range =></span>
+          <span><span class="range-value-1"></span> To <span class="range-value-2"></span></span>
+          </p>
+          <div id="range-slider"></div>
+        </div>
+        <div id="notice">
+          <div class="legend legend-pivot" style="display:none"><div class="color color-pivot"></div><div class="text text-pivot">Pivot</div></div>
+          <div class="legend legend-compare"><div class="color color-compare"></div><div class="text text-compare">Comparasion</div></div>
+          <div class="legend legend-swap"><div class="color color-swap"></div><div class="text text-swap">Swap</div></div>
+          <div class="legend legend-sorted"><div class="color color-sorted"></div><div class="text text-sorted">Sorted</div></div>
+        </div>
+      </div>
+      <main>
+        <svg></svg>
+      </main>
+    </div>
+  </div>
+</body>
+<script>const className= "QuickSort";</script>
+<script src="../../js/sort-control.js"></script>
+<script src="../../js/sort-display.js"></script>
+<script src="../../js/sort.js"></script>
+</html>

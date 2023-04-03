@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  background-color: beige;
+}
+body section {
+  left: 0;
+  width: 50vw;
+  height: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 10px 20px;
+  padding: 5px 5px;
+  box-sizing: border-box;
+}
+body section h1 {
+  display: flex;
+  justify-content: left;
+}
+body section ul {
+  display: flex;
+  flex-direction: column;
+  list-style-type: square;
+  justify-content: left;
+  margin: 5px 0;
+}
+body section form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+body section form .title {
+  font-size: large;
+  padding: 5px 0;
+  font-weight: bold;
+}
+body section form .drop-down-manual input[type=text], body section form .drop-down-random input[type=text] {
+  display: flex;
+  justify-content: left;
+  margin: 20px 5px;
+  width: 300px;
+}
+body section form .drop-down-manual input, body section form .drop-down-random input {
+  display: flex;
+  justify-content: left;
+  margin: 20px 5px;
+  width: 40px;
+}
+body section form .drop-down-manual label, body section form .drop-down-random label {
+  display: flex;
+  padding-right: 30px;
+}
+body section form .drop-down-manual label:last-child, body section form .drop-down-random label:last-child {
+  margin-bottom: 30px;
+}
+body section form input {
+  display: flex;
+  justify-content: left;
+  margin: 20px 5px;
+  width: 20px;
+}
+body section form .btn {
+  display: flex;
+  position: relative;
+  min-width: -webkit-min-content;
+  min-width: -moz-min-content;
+  min-width: min-content;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  justify-content: left;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px black;
+  padding: 5px 10px;
+  margin: 5px 0;
+}
+body section .confirm p {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  width: 200px;
+  padding: 5px 10px;
+}
+body section .confirm button {
+  display: flex;
+  justify-content: left;
+  min-width: -webkit-min-content;
+  min-width: -moz-min-content;
+  min-width: min-content;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  margin: 20px 0;
+  padding: 5px 10px;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px black;
+}/*# sourceMappingURL=style.css.map */

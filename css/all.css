@@ -1,0 +1,35 @@
+body{
+  margin: 5px;
+  background-color: bisque !important;
+}
+.page{
+  display: flex;
+  background-color: bisque;
+}
+.content{
+  margin: 5px;
+  left:0;
+  width: 30vw;
+  height: 85vh;
+  overflow: auto;
+}
+.display{
+  margin: 5px;
+  right:0;
+  width: 65vw;
+  height: 85vh;
+  display: flex;
+  flex-direction: reverse;
+}
+ul{margin-left: 20px;}
+p{margin: 5px 0;}
+p::first-letter{font-size: large;}
+a{cursor: pointer;text-decoration: underline;}
+.inactive{display:none !important}
+
+.main-display{display: flex;flex-direction: column;position: relative;height: 100vh;}
+.data-display{height: 70vh;display: flex;position: relative;}
+.data-control{margin:0 10px}
+.main-display .data-control input{margin: 3px 3px;}
+.main-display .data-control button{margin: 2px 0;}
+  

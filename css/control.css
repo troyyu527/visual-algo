@@ -1,0 +1,111 @@
+#control-container {
+  display: flex;
+  position: absolute;
+  bottom: 5vh;
+  width: 66vw;
+  height: 15vh;
+}
+#control-container .btn-group {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin: 5px;
+}
+#control-container .btn-group .btn {
+  font-weight: bold;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 1px black;
+  transition: all 0.2s;
+}
+#control-container .btn-group .btn:hover {
+  box-shadow: 0 0;
+  transform: translate(2px, 2px);
+}
+#control-container .select-group {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  font-weight: 600;
+  margin: 5px;
+}
+#control-container .select-group select {
+  margin: 5px;
+}
+#control-container .select-group select option {
+  font-size: medium;
+}
+#control-container .input-group {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  font-weight: 600;
+  margin: 5px;
+}
+#control-container .input-group .size-value, #control-container .input-group .range-value-1, #control-container .input-group .range-value-2 {
+  color: red;
+}
+#control-container .input-group #size-slider {
+  cursor: pointer;
+}
+#control-container .input-group .ui-slider {
+  margin: 5px;
+  height: 8px;
+  width: 200px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#control-container .input-group .ui-slider-handle {
+  height: 15px;
+  width: 15px;
+  border-radius: 15px;
+  background-color: blue;
+  border: 0;
+}
+#control-container .input-group .ui-slider-range {
+  background: cyan;
+}
+#control-container #notice {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin: 10px 20px;
+}
+#control-container #notice .legend {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#control-container #notice .color {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  margin: 3px;
+}
+#control-container #notice .text {
+  display: flex;
+  margin: 3px;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+}
+#control-container #notice .color-pivot {
+  background-color: yellow;
+}
+#control-container #notice .color-compare {
+  background-color: greenyellow;
+}
+#control-container #notice .color-swap {
+  background-color: red;
+}
+#control-container #notice .color-sorted {
+  background-color: rgb(184, 76, 184);
+}/*# sourceMappingURL=control.css.map */
