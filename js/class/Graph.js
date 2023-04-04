@@ -55,7 +55,7 @@ class Graph{
         id = obj.id;
       }
       //obj.neighbor=obj.neighbor.filter(neighborID=>neighborID!==id)
-      obj.neighbor=this.getNeighbor(node.name)
+      obj.neighbor=this.getNeighbor(obj.name)
     })
     
     index ||index===0?this.nodes.splice(index,1):"";
