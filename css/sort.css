@@ -1,0 +1,153 @@
+/* ------------------------------------------------------------------
+   Sort visualizer — dark chart canvas, rainbow bars, glowing states,
+   glass HUD + narration. Applies to all six sort pages.
+   ------------------------------------------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  order: 1;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background: radial-gradient(circle at 30% -10%, #1e293b 0%, #0b1220 65%);
+  padding: 14px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(2, 6, 23, 0.45);
+}
+
+main svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Axis + baseline */
+main svg .axis-y text {
+  fill: #64748b;
+  font-size: 10px;
+}
+main svg .axis-y line {
+  stroke: rgba(255, 255, 255, 0.06);
+}
+main svg .baseline {
+  stroke: rgba(255, 255, 255, 0.22);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+}
+main svg .bar-label {
+  fill: #cbd5e1;
+  font-size: 10px;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+/* One neutral colour for all bars; colour is used ONLY for algorithm states,
+   so each legend colour means exactly one thing. */
+main svg .arr .element rect {
+  fill: #7c89a0;
+  stroke: rgba(2, 6, 23, 0.35);
+  stroke-width: 0.5;
+  transition: fill 0.18s ease;
+}
+main svg .arr .compare rect { fill: #38bdf8; }   /* Comparison */
+main svg .arr .swap rect    { fill: #f43f5e; }   /* Swap */
+main svg .arr .insert rect  { fill: #a78bfa; }   /* Insert */
+main svg .arr .pivot rect   { fill: #fbbf24; }   /* Pivot */
+main svg .arr .sorted rect  { fill: #34d399; }   /* Sorted */
+
+/* ---- Glass metrics HUD ---- */
+.viz-hud {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  z-index: 5;
+  pointer-events: none;
+}
+.hud-stat {
+  background: rgba(2, 6, 23, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 6px 13px;
+  backdrop-filter: blur(8px);
+  min-width: 82px;
+}
+.hud-k {
+  display: block;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+}
+.hud-v {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #f8fafc;
+  font-variant-numeric: tabular-nums;
+}
+.hud-v.pulse {
+  animation: hudpulse 0.3s ease;
+}
+@keyframes hudpulse {
+  0% { transform: scale(1); color: #7dd3fc; }
+  40% { transform: scale(1.28); }
+  100% { transform: scale(1); color: #f8fafc; }
+}
+.hud-bigo {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+.bigo {
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.bigo.best { background: rgba(52, 211, 153, 0.15); color: #6ee7b7; border: 1px solid rgba(52, 211, 153, 0.4); }
+.bigo.avg { background: rgba(96, 165, 250, 0.15); color: #93c5fd; border: 1px solid rgba(96, 165, 250, 0.4); }
+.bigo.worst { background: rgba(248, 113, 113, 0.15); color: #fca5a5; border: 1px solid rgba(248, 113, 113, 0.4); }
+.bigo.space { background: rgba(255, 255, 255, 0.08); color: #cbd5e1; border: 1px solid rgba(255, 255, 255, 0.18); }
+
+/* ---- Narration pill ---- */
+.viz-narration {
+  position: absolute;
+  bottom: 14px;
+  left: 16px;
+  right: 16px;
+  text-align: center;
+  z-index: 5;
+  pointer-events: none;
+}
+.viz-narration span {
+  display: inline-block;
+  background: rgba(2, 6, 23, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  color: #e2e8f0;
+  font-size: 0.85rem;
+  padding: 6px 18px;
+  border-radius: 999px;
+}
+
+/* Legend swatches recoloured to match the new state palette. */
+.color-compare { background: #38bdf8 !important; }
+.color-swap { background: #f43f5e !important; }
+.color-sorted { background: #34d399 !important; }
+.color-pivot { background: #fbbf24 !important; }

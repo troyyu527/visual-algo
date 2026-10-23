@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Stack</title>
+
+  <link rel="icon" type="image/x-icon" href="../../img/pyramid.ico">
+  <link rel="stylesheet" href="../../vendor/semantic.min.css">
+  <link rel="stylesheet" href="../../vendor/animate.min.css">
+  <link rel="stylesheet" href="../../css/all.css">
+  <link rel="stylesheet" href="../../css/data.css">
+  <script src="../../vendor/d3.min.js"></script>
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta name="theme-color" content="#0f172a">
+  <script src="../../js/offline.js" defer></script>
+</head>
+
+<body data-structure="Stack">
+  <div class="ui inverted menu">
+    <a class="item" href="../../index.html">
+      Back Home
+    </a>
+  </div>
+  <div class="page">
+    <div class="content">
+      <div id="stack">
+        <h1>Stack</h1>
+        <p>A <b>stack</b> is a linear collection of elements with a single point of
+          access: the <b>top</b>. Elements are added and removed only there, never
+          in the middle.</p>
+        <p>Operations</p>
+        <ul>
+          <li><b>Push:</b> place a new element on top of the stack.</li>
+          <li><b>Pop:</b> remove and return the element currently on top.</li>
+        </ul>
+        <p><mark>The last element pushed is the first one popped &mdash; last in, first
+          out (LIFO).</mark></p>
+        <p>This reversing behaviour is exactly what powers function-call frames, undo
+          history, and the backtracking in <b>depth-first search</b>.</p>
+      </div>
+    </div>
+    <div class="display">
+      <div class="main-display">
+        <!-- Inputs and buttons are generated from js/structures/stack.js. -->
+        <div class="data-control">
+          <div id="notice"></div>
+        </div>
+        <div class="data-display">
+          <main></main>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../../js/pages/data-page.js"></script>
+</body>
+</html>

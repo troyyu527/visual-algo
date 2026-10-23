@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisualAlgo — Visualization of Data Structures &amp; Sorting Algorithms</title>
+  <link rel="icon" type="image/x-icon" href="./img/pyramid.ico">
+  <link rel="stylesheet" href="./vendor/semantic.min.css">
+  <link rel="stylesheet" href="./css/all.css">
+  <style>
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 8px 22px 40px; }
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1.25fr 0.9fr; gap: 22px; margin: 10px 0 28px; }
+    .hero-copy { padding: 8px 4px; }
+    .eyebrow { text-transform: uppercase; letter-spacing: 0.22em; font-size: 0.72rem; color: #a78bfa; font-weight: 700; margin-bottom: 12px; }
+    .hero h1 { font-size: 3rem; line-height: 1.05; font-weight: 800; margin-bottom: 14px;
+      background: linear-gradient(120deg, #f8fafc 20%, #a78bfa 60%, #818cf8 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { color: #cbd5e1; font-size: 1.05rem; line-height: 1.65; max-width: 46ch; }
+    .hero-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+    .tag { font-size: 0.72rem; font-weight: 700; padding: 5px 11px; border-radius: 999px;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); color: #cbd5e1; }
+
+    /* Featured card */
+    .feature { position: relative; overflow: hidden; border-radius: 20px; padding: 24px;
+      background: linear-gradient(160deg, rgba(139,92,246,0.28), rgba(99,102,241,0.12));
+      border: 1px solid rgba(196,181,253,0.35); box-shadow: 0 24px 60px rgba(2,6,23,0.45);
+      display: flex; flex-direction: column; justify-content: space-between; }
+    .feature .star { font-size: 1.6rem; }
+    .feature h3 { font-size: 1.4rem; margin: 10px 0 8px; color: #f8fafc; }
+    .feature p { color: #ddd6fe; line-height: 1.55; margin-bottom: 18px; }
+    .feature .cta { align-self: flex-start; text-decoration: none; font-weight: 700; color: #fff;
+      background: linear-gradient(135deg, #8b5cf6, #6366f1); padding: 11px 20px; border-radius: 999px;
+      box-shadow: 0 10px 24px rgba(99,102,241,0.4); transition: transform 0.15s ease, filter 0.15s ease; }
+    .feature .cta:hover { transform: translateY(-2px); filter: brightness(1.08); }
+    .feature::after { content: ""; position: absolute; inset: -40% -20% auto auto; width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(167,139,250,0.4), transparent 70%); filter: blur(10px); }
+
+    /* Sections */
+    .section-title { display: flex; align-items: baseline; gap: 10px; margin: 26px 0 14px; }
+    .section-title h2 { font-size: 1.3rem; color: #f1f5f9; }
+    .section-title span { color: #94a3b8; font-size: 0.85rem; }
+
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .grid.algos { grid-template-columns: repeat(3, 1fr); }
+    .card { text-decoration: none; display: flex; align-items: center; gap: 13px;
+      background: rgba(15,23,42,0.66); border: 1px solid rgba(255,255,255,0.10); border-radius: 14px;
+      padding: 15px 16px; color: #e2e8f0; backdrop-filter: blur(10px);
+      transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease, background 0.16s ease; }
+    .card:hover { transform: translateY(-4px); border-color: rgba(167,139,250,0.6);
+      box-shadow: 0 16px 36px rgba(2,6,23,0.5); background: rgba(30,27,75,0.6); }
+    .card .ico { font-size: 1.5rem; width: 44px; height: 44px; display: grid; place-items: center;
+      border-radius: 12px; background: rgba(139,92,246,0.16); border: 1px solid rgba(255,255,255,0.10); flex-shrink: 0; }
+    .card .label { font-weight: 700; font-size: 0.98rem; }
+    .card .sub { display: block; font-weight: 500; font-size: 0.75rem; color: #94a3b8; margin-top: 2px; }
+    .card.star-card { border-color: rgba(167,139,250,0.5); background: linear-gradient(160deg, rgba(139,92,246,0.2), rgba(15,23,42,0.66)); }
+
+    footer.credit { text-align: center; color: #64748b; font-size: 0.82rem; margin-top: 36px; padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.08); }
+
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid, .grid.algos { grid-template-columns: repeat(2, 1fr); }
+      .hero h1 { font-size: 2.2rem; }
+    }
+  </style>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#0f172a">
+  <script src="./js/offline.js" defer></script>
+</head>
+<body>
+  <div class="ui inverted menu">
+    <a class="item" href="./index.html">Home</a>
+    <div class="ui simple dropdown link item">
+      <span class="text">Data Structure</span><i class="dropdown icon"></i>
+      <div class="menu">
+        <a class="item" href="./html/data/Stack.html">Stack</a>
+        <a class="item" href="./html/data/Queue.html">Queue</a>
+        <a class="item" href="./html/data/Linked-List.html">Linked-List</a>
+        <a class="item" href="./html/data/Array.html">Array</a>
+        <a class="item" href="./html/data/Hash-Table.html">Hash-Table</a>
+        <a class="item" href="./html/data/Tree.html">Tree</a>
+        <a class="item" href="./html/data/Heap.html">Heap</a>
+        <a class="item" href="./html/data/Graph.html">Graph</a>
+      </div>
+    </div>
+    <div class="ui simple dropdown link item">
+      <span class="text">Algorithm</span><i class="dropdown icon"></i>
+      <div class="menu">
+        <a class="item" href="./html/sort/Bubble-Sort.html">Bubble-Sort</a>
+        <a class="item" href="./html/sort/Insertion-Sort.html">Insertion-Sort</a>
+        <a class="item" href="./html/sort/Selection-Sort.html">Selection-Sort</a>
+        <a class="item" href="./html/sort/Merge-Sort.html">Merge-Sort</a>
+        <a class="item" href="./html/sort/Heap-Sort.html">Heap-Sort</a>
+        <a class="item" href="./html/sort/Quick-Sort.html">Quick-Sort</a>
+        <div class="divider"></div>
+        <a class="item" href="./html/algo/Force-Graph.html">Force-Directed Graph &#9733;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Interactive Computer Science</p>
+        <h1>Visualization of Data Structures &amp; Sorting Algorithms</h1>
+        <p>Watch the fundamentals come alive — animated with <b>D3.js</b>. Step through sorting
+          algorithms, build data structures by hand, and explore a physics-based graph in real time.</p>
+        <div class="hero-tags">
+          <span class="tag">D3.js v7</span>
+          <span class="tag">Force simulation</span>
+          <span class="tag">Live metrics</span>
+          <span class="tag">8 structures · 6 sorts</span>
+        </div>
+      </div>
+      <a class="feature" href="./html/algo/Force-Graph.html" style="text-decoration:none">
+        <div>
+          <div class="star">&#10024;</div>
+          <h3>Force-Directed Graph</h3>
+          <p>A draggable, physics-based graph running animated BFS &amp; Dijkstra — with a live traversal
+            HUD and a glowing shortest path.</p>
+        </div>
+        <span class="cta">Launch showcase &rarr;</span>
+      </a>
+    </section>
+
+    <div class="section-title"><h2>Data Structures</h2><span>build &amp; animate them by hand</span></div>
+    <div class="grid">
+      <a class="card" href="./html/data/Stack.html"><span class="ico">&#128218;</span><span class="label">Stack<span class="sub">LIFO</span></span></a>
+      <a class="card" href="./html/data/Queue.html"><span class="ico">&#128101;</span><span class="label">Queue<span class="sub">FIFO</span></span></a>
+      <a class="card" href="./html/data/Linked-List.html"><span class="ico">&#128279;</span><span class="label">Linked-List<span class="sub">nodes &amp; pointers</span></span></a>
+      <a class="card" href="./html/data/Array.html"><span class="ico">&#128290;</span><span class="label">Array<span class="sub">indexed</span></span></a>
+      <a class="card" href="./html/data/Hash-Table.html"><span class="ico">&#35;&#65039;&#8419;</span><span class="label">Hash-Table<span class="sub">key &rarr; bucket</span></span></a>
+      <a class="card" href="./html/data/Tree.html"><span class="ico">&#127794;</span><span class="label">Tree<span class="sub">BST</span></span></a>
+      <a class="card" href="./html/data/Heap.html"><span class="ico">&#128314;</span><span class="label">Heap<span class="sub">binary max-heap</span></span></a>
+      <a class="card" href="./html/data/Graph.html"><span class="ico">&#128376;&#65039;</span><span class="label">Graph<span class="sub">nodes &amp; edges</span></span></a>
+    </div>
+
+    <div class="section-title"><h2>Sorting Algorithms</h2><span>d3 scales · glide-swap animation · live comparisons</span></div>
+    <div class="grid algos">
+      <a class="card" href="./html/sort/Bubble-Sort.html"><span class="ico">&#129767;</span><span class="label">Bubble Sort<span class="sub">O(n&#178;)</span></span></a>
+      <a class="card" href="./html/sort/Insertion-Sort.html"><span class="ico">&#128229;</span><span class="label">Insertion Sort<span class="sub">O(n&#178;)</span></span></a>
+      <a class="card" href="./html/sort/Selection-Sort.html"><span class="ico">&#127919;</span><span class="label">Selection Sort<span class="sub">O(n&#178;)</span></span></a>
+      <a class="card" href="./html/sort/Merge-Sort.html"><span class="ico">&#128256;</span><span class="label">Merge Sort<span class="sub">O(n log n)</span></span></a>
+      <a class="card" href="./html/sort/Heap-Sort.html"><span class="ico">&#128314;</span><span class="label">Heap Sort<span class="sub">O(n log n)</span></span></a>
+      <a class="card" href="./html/sort/Quick-Sort.html"><span class="ico">&#9889;</span><span class="label">Quick Sort<span class="sub">O(n log n)</span></span></a>
+    </div>
+
+    <footer class="credit">
+      &copy; 2022 Troy Yu — for private learning only, no commercial use. Content referenced from Wikipedia &amp; research.
+    </footer>
+  </div>
+
+</body>
+</html>

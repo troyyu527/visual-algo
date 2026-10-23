@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Array</title>
+
+  <link rel="icon" type="image/x-icon" href="../../img/pyramid.ico">
+  <link rel="stylesheet" href="../../vendor/semantic.min.css">
+  <link rel="stylesheet" href="../../vendor/animate.min.css">
+  <link rel="stylesheet" href="../../css/all.css">
+  <link rel="stylesheet" href="../../css/data.css">
+  <script src="../../vendor/d3.min.js"></script>
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta name="theme-color" content="#0f172a">
+  <script src="../../js/offline.js" defer></script>
+</head>
+
+<body data-structure="Array">
+  <div class="ui inverted menu">
+    <a class="item" href="../../index.html">
+      Back Home
+    </a>
+  </div>
+  <div class="page">
+    <div class="content">
+      <div id="array">
+        <h1>Array</h1>
+        <p>An <b>array</b> is a collection of elements kept in one contiguous block of
+          memory, each identified by an <b>index</b>. <mark>Because every element's
+          address is computed directly from its index, any element can be read or written
+          in constant time &mdash; O(1) random access.</mark></p>
+        <p>Operations (as in JavaScript)</p>
+        <ul>
+          <li><b>Push:</b> add an element at the end.</li>
+          <li><b>Pop:</b> remove the element at the end.</li>
+          <li><b>Unshift:</b> add an element at the front.</li>
+          <li><b>Shift:</b> remove the element at the front.</li>
+        </ul>
+        <p>The price of that fast indexing is costly restructuring: <mark>inserting or
+          removing anywhere but the end shifts every following element</mark> &mdash; an
+          O(n) operation, which is exactly where linked structures do better.</p>
+      </div>
+    </div>
+    <div class="display">
+      <div class="main-display">
+        <!-- Inputs and buttons are generated from the structure definition
+             (js/structures/array.js) — see js/pages/data-page.js. -->
+        <div class="data-control">
+          <div id="notice"></div>
+        </div>
+        <div class="data-display">
+          <main></main>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../../js/pages/data-page.js"></script>
+</body>
+</html>

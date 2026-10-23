@@ -1,0 +1,264 @@
+@charset "UTF-8";
+/* ==================================================================
+   Data-structure visual elements — modern dark theme.
+   Geometry preserved from the original; colors modernized.
+   ================================================================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root { --animate-duration: 0.7s; --animate-delay: 0s; }
+
+#cap-note { margin-top: 8px; color: #a5b4fc; font-weight: 600; font-size: 0.88rem; }
+
+/* Tree / Graph: the visit order produced by the last Travel run.
+   Heap: the array Heapify started from and the result.
+   Linked-List: the head->tail traversal sequence. */
+#travel-path,
+#heapify-note,
+#ll-path,
+.data-control .readout { margin-top: 8px; color: #a5b4fc; font-size: 0.88rem; line-height: 1.5; }
+#travel-path b,
+#heapify-note b,
+#ll-path b,
+.data-control .readout b { color: #ede9fe; }
+#travel-path .unreached,
+#heapify-note .not-heap { color: #fbbf24; }
+
+/* Linked-List: the node the traversal pointer is currently on. */
+main .LinkedList .element.visiting {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.55), rgba(5, 150, 105, 0.4)) !important;
+  border-color: #34d399 !important;
+  box-shadow: 0 0 16px rgba(52, 211, 153, 0.9) !important;
+  transform: translateY(-5px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Heap: the parent currently being sifted down by Heapify. */
+main svg .heap-node.sifting circle {
+  fill: #fde68a !important;
+  stroke: #f59e0b !important;
+  filter: drop-shadow(0 0 11px rgba(245, 158, 11, 0.95));
+}
+
+main {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0;
+  width: 100%;
+  height: 70vh;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background: radial-gradient(circle at 30% -10%, #1e293b 0%, #0b1220 65%);
+  box-shadow: 0 24px 60px rgba(2, 6, 23, 0.45);
+  color: #e2e8f0;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+/* Shared element card look. */
+main .element {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.28), rgba(99, 102, 241, 0.16)) !important;
+  color: #f8fafc;
+  border: 1px solid rgba(196, 181, 253, 0.55) !important;
+  box-shadow: 0 8px 22px rgba(2, 6, 23, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+}
+main .element::before {
+  background: linear-gradient(135deg, #8b5cf6, #6366f1) !important;
+  border: 2px solid rgba(15, 23, 42, 0.65) !important;
+  color: #fff !important;
+}
+
+/* ---------------- Stack ---------------- */
+main .Stack {
+  counter-reset: index -1;
+  padding: 0 5px 1.5rem 5px;
+  display: flex;
+  flex-direction: column;
+  border-width: 5px;
+  border-top-width: 0;
+  border-color: rgba(226, 232, 240, 0.6);
+  border-style: solid;
+  width: 7rem;
+}
+main .Stack::before {
+  right: 50%; content: "⬉"; font-size: 30px; display: flex; position: absolute;
+  align-content: center; padding-top: 30px; width: 50px; height: 50px;
+  border-top: 5px solid rgba(226, 232, 240, 0.6);
+  transform-origin: top left; transform: rotate(-135deg); color: #cbd5e1;
+}
+main .Stack::after {
+  position: absolute; display: flex; align-content: center; justify-content: end;
+  padding-top: 30px; left: 50%; content: "⬋"; font-size: 30px; width: 50px; height: 50px;
+  border-top: 5px solid rgba(226, 232, 240, 0.6);
+  transform-origin: top right; transform: rotate(135deg); color: #cbd5e1;
+}
+main .Stack .element {
+  counter-increment: index; display: flex; top: 20px; margin: 3px; align-items: center;
+  justify-content: space-around; font-size: large; font-weight: bold; border-radius: 40% 10px 10px 40%;
+  position: relative; padding: 5px 5px 5px 0; flex-direction: row; width: 5rem; height: 2rem;
+}
+main .Stack .element::before {
+  left: 0; display: flex; border-radius: 50%; content: counter(index);
+  justify-content: center; align-items: center; font-size: 0.7rem;
+  width: 1.3rem; height: 1.3rem; font-weight: lighter;
+}
+
+/* ---------------- Queue ---------------- */
+main .Queue {
+  counter-reset: index -1; padding: 5px; display: flex; flex-direction: row-reverse;
+  border-width: 5px; border-right-width: 0; border-left-width: 0;
+  border-color: rgba(226, 232, 240, 0.6); border-style: solid; width: 75%; height: 80px;
+}
+main .Queue::before {
+  left: 0; content: "⮕"; padding-top: 20px; font-size: 30px; display: flex; position: absolute;
+  justify-content: center; width: 50px; height: 50px; color: #cbd5e1;
+}
+main .Queue::after {
+  position: absolute; display: flex; align-content: center; padding-top: 20px; right: -10px;
+  content: "⮕"; font-size: 30px; width: 50px; height: 50px; color: #cbd5e1;
+}
+main .Queue .element {
+  counter-increment: index; display: flex; top: 0; margin: 3px; align-items: center;
+  justify-content: center; font-size: large; font-weight: bold; border-radius: 40% 40% 10px 10px;
+  position: relative; padding: 5px; flex-direction: column; width: 2.5rem; height: 4rem;
+}
+main .Queue .element::before {
+  top: 0; display: flex; border-radius: 50%; content: counter(index); justify-content: center;
+  align-items: center; font-size: small; width: 1.5rem; height: 1.5rem; font-weight: lighter;
+}
+
+/* ---------------- Linked List ---------------- */
+main .LinkedList {
+  counter-reset: index -1; display: flex; flex-direction: row; flex-wrap: wrap;
+  justify-content: center; align-content: center; row-gap: 8px; max-width: 92%; max-height: 100%;
+}
+main .LinkedList .element {
+  counter-increment: index; display: flex; margin: 5px 9px; align-items: center; justify-items: center;
+  justify-content: space-between; gap: 5px; font-weight: bold; font-size: 1rem; position: relative;
+  padding: 6px 8px; flex-direction: row; min-width: 3.6rem; height: 2.8rem;
+}
+main .LinkedList .element::before {
+  display: flex; border-radius: 50%; content: counter(index); justify-content: center;
+  align-items: center; width: 1.45rem; height: 1.45rem; font-size: 0.62rem; font-weight: lighter; flex-shrink: 0;
+}
+main .LinkedList .element:not(:last-child)::after,
+main .LinkedList .element:last-child::after {
+  font-size: x-large; width: 1.1rem; height: 38px; display: flex; align-items: center; position: relative;
+  padding-left: 2px; border-left-width: 2px; border-right-width: 0; border-top-width: 2px;
+  border-bottom-width: 2px; border-style: solid; border-color: transparent rgba(226, 232, 240, 0.6);
+  color: #a5b4fc; flex-shrink: 0;
+}
+main .LinkedList .element:not(:last-child)::after { content: "•⮕"; }
+main .LinkedList .element:last-child::after { content: "•"; }
+
+/* ---------------- Array ---------------- */
+main .Array {
+  counter-reset: index -1; padding: 5px 34px; display: flex; flex-direction: row; flex-wrap: wrap;
+  justify-content: center; align-content: center; row-gap: 6px; position: relative;
+  width: 90%; max-height: 100%;
+}
+main .Array::before {
+  left: 0; top: 50%; transform: translateY(-50%); content: "["; font-size: xx-large; display: flex; position: absolute;
+  justify-content: center; align-items: center; width: 34px; height: 40px; color: #a5b4fc;
+}
+main .Array::after {
+  top: 50%; transform: translateY(-50%); position: absolute; display: flex; justify-content: center; align-items: center; right: 0;
+  content: "]"; font-size: xx-large; width: 34px; height: 40px; color: #a5b4fc;
+}
+main .Array .element {
+  counter-increment: index; display: flex; position: relative; margin: 2px; align-items: center;
+  justify-content: center; font-size: large; font-weight: bold; padding: 20px 0 0 0;
+  border-radius: 50% 50% 0 0; width: 2.3rem; height: 3rem;
+}
+main .Array .element::before {
+  top: 3px; position: absolute; display: flex; border-radius: 50%; content: counter(index);
+  justify-content: center; align-items: center; font-size: 0.6rem; width: 1.2rem; height: 1.2rem; font-weight: lighter;
+}
+
+/* ---------------- Hash Table ---------------- */
+main .HashTable {
+  counter-reset: index -1; padding: 5px; display: flex; flex-direction: row; justify-content: center;
+  max-width: 92%;
+  border-radius: 12px; overflow: hidden;
+  box-shadow: 0 20px 50px rgba(2, 6, 23, 0.45);
+}
+main .HashTable .box {
+  counter-increment: index; flex: 1 1 0; min-width: 3.6rem; min-height: 8rem; max-height: 60vh;
+  background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(148, 163, 184, 0.4); border-right-width: 0;
+}
+main .HashTable .box:last-child { border-right-width: 1px; }
+main .HashTable .box::before {
+  display: flex; justify-content: center; align-items: center; height: 2.2rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.4), rgba(99, 102, 241, 0.26));
+  color: #ede9fe; content: counter(index); font-weight: 700; font-size: 1.15rem;
+}
+main .HashTable .box .element {
+  display: flex; position: relative; margin: 5px 5px; align-items: center;
+  justify-content: center; font-size: 1rem; font-weight: bold; padding: 8px 10px; min-width: 2.6rem; min-height: 2.4rem;
+  border-radius: 10px;
+}
+
+/* ---------------- Tree / Graph (SVG) ---------------- */
+main .Tree { display: flex; position: absolute; z-index: 10; justify-content: center; align-items: center; }
+main .Graph { position: absolute; }
+main .Graph svg .node-group { cursor: pointer; }
+
+/* SVG structure views (Heap / Tree / Graph): themed nodes, glow & motion.
+   CSS overrides the inline presentation attributes set in data-display.js. */
+main svg { animation: svgFade 0.45s ease; }
+@keyframes svgFade { from { opacity: 0; } to { opacity: 1; } }
+
+main svg text {
+  fill: #0b1020 !important;             /* dark, high-contrast on the light nodes */
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  font-weight: 900;                     /* thick so numbers are easy to read */
+  paint-order: stroke;
+  stroke: rgba(255, 255, 255, 0.55);    /* light halo keeps it legible on any node */
+  stroke-width: 2px;
+}
+main svg circle {
+  fill: #e8e6ff !important;             /* light node so dark labels pop */
+  stroke: #7c3aed !important;
+  stroke-width: 2.5px !important;
+  filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.55));
+  transition: fill 0.25s ease, stroke 0.25s ease;
+}
+main svg line,
+main svg .tree-group path {
+  stroke: #7c89a3 !important;
+  stroke-width: 2px !important;
+}
+main svg marker path { fill: #94a3b8 !important; }
+main svg rect {
+  fill: rgba(139, 92, 246, 0.12) !important;
+  stroke: #8b5cf6 !important;
+}
+
+/* Graph interaction: hover + traversal highlight */
+main svg .node-group { cursor: pointer; }
+main svg .node-group:hover circle { filter: drop-shadow(0 0 11px rgba(139, 92, 246, 0.95)); }
+main svg .travel-on circle {
+  fill: #a7f3d0 !important;            /* light emerald — dark labels stay readable */
+  stroke: #10b981 !important;
+  filter: drop-shadow(0 0 10px rgba(52, 211, 153, 0.85));
+}
+
+/* Tree "Null" placeholder leaves: dim them so real values stand out. */
+main svg .tree-group ._undefined circle {
+  fill: #2a3350 !important;
+  stroke: #47536b !important;
+  opacity: 0.5;
+  filter: none;
+}
+main svg .tree-group ._undefined text {
+  fill: #8b98ad !important;
+  font-weight: 600;
+  stroke: none;
+}
+main .active { stroke: #a78bfa; stroke-width: 2px; }

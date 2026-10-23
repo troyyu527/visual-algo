@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Heap</title>
+  <link rel="stylesheet" href="../../css/all.css">
+  <link rel="stylesheet" href="../../vendor/semantic.min.css">
+  <link rel="stylesheet" href="../../vendor/animate.min.css">
+  <link rel="icon" type="image/x-icon" href="../../img/pyramid.ico">
+  <script src="../../vendor/jquery.min.js"></script>
+  <link rel="stylesheet" href="../../css/data.css">
+  <script src="../../vendor/d3.min.js"></script>
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta name="theme-color" content="#0f172a">
+  <script src="../../js/offline.js" defer></script>
+</head>
+
+<body data-structure="Heap">
+  <div class="ui inverted menu">
+    <a class="item" href="../../index.html">
+      Back Home
+    </a>
+  </div>
+  <div class="page">
+    <div class="content">
+      <div id="heap">
+        <h1>Heap</h1>
+        <p>A <b>heap</b> is a tree-based structure that keeps its most extreme value
+          instantly reachable at the root. It is an <b>almost-complete</b> binary tree
+          that obeys the <b>heap property</b>:</p>
+        <ul>
+          <li><b>Max heap:</b> <mark>every parent is greater than or equal to its
+            children</mark>, so the maximum sits at the root.</li>
+          <li><b>Min heap:</b> every parent is less than or equal to its children, so the
+            minimum sits at the root.</li>
+        </ul>
+        <p>Operations</p>
+        <ul>
+          <li><b>Insertion:</b> add the element at the next free spot, then <b>sift up</b>
+            until the heap property holds again.</li>
+          <li><b>Extraction:</b> remove the root, move the last element into its place,
+            then <b>sift down</b>.</li>
+          <li><b>Replacement:</b> overwrite the root with a new value and sift down &mdash;
+            one pass instead of an extract plus an insert.</li>
+        </ul>
+        <p>Actions</p>
+        <ul>
+          <li><b>Heapify:</b> turn an arbitrary array into a valid heap, bottom-up.</li>
+          <li><b>Sift down / Sift up:</b> restore the heap property by swapping a value
+            with the larger of its two children as it moves down (max heap), or with its
+            parent as it moves up.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="display">
+      <div class="main-display">
+        <div class="data-control">
+          <input id="inputData" type="number" placeholder="Input data" min="-100" max="100">
+<input id="inputText" type="text" placeholder="Input data" maxlength="4" size="10">
+<div id="linkInput" class="inactive">
+  Connect/Remove <input id="source-node" type="text" placeholder="Source Node" size="10"> To
+  <input id="target-node" type="text" placeholder="Target Node" size="10"><br>
+</div>
+
+<input id="inputKey" type="text" placeholder="Input Key" maxlength="4">
+<input id="inputValue" type="text" placeholder="Input Value" maxlength="4">
+
+<button id="push" class="mini ui button blue" onclick="push()">Add/Push</button>
+<button id="rand" class="mini ui button blue" onclick="rand()">Add Random/Push</button>
+<button id="pop" class="mini ui button blue" onclick="pop()">Remove/Pop</button>
+<button id="unshift" class="mini ui button blue" onclick="unshift()">Add/Unshift</button>
+<button id="shift" class="mini ui button blue" onclick="shift()">Remove/Shift</button>
+<!-- Heap only: switch the heap direction, plus the "Replacement" operation and
+     the "Heapify" action from the description. -->
+<select id="heap-type" title="Heap type" onchange="changeHeapType()">
+  <option value="max" selected>Max Heap</option>
+  <option value="min">Min Heap</option>
+</select>
+<button id="replace" class="mini ui button blue" onclick="replaceRoot()">Replace Root</button>
+<button id="heapify" class="mini ui button brown" onclick="heapifyArray()">Heapify</button>
+<button id="set" class="mini ui button blue" onclick="setItem()">Set Item Key & Value</button>
+<button id="get" class="mini ui button blue" onclick="getItem()">Get Value from Key</button>
+<button id="get-link" class="mini ui button blue" onclick="getLink()">Add Link</button>
+<button id="del-node" class="mini ui button red" onclick="delNode()">Delete Node</button>
+<button id="del-link" class="mini ui button red" onclick="delLink()">Delete Link</button>
+<button id="travel" class="mini ui button brown" onclick="travel()">Travel</button>
+<button id="deleteData" class="mini ui button red" onclick="deleteData()">Delete Input</button>
+<button id="clear" class="mini ui button red" onclick="clearAll()">ClearAll</button>
+<div id="notice"></div>
+        </div>
+        <div class="data-display">
+          <main></main>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+  <script type="module" src="../../js/pages/data-svg.js"></script>
+</html>

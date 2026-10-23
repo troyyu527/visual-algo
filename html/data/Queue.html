@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Queue</title>
+
+  <link rel="icon" type="image/x-icon" href="../../img/pyramid.ico">
+  <link rel="stylesheet" href="../../vendor/semantic.min.css">
+  <link rel="stylesheet" href="../../vendor/animate.min.css">
+  <link rel="stylesheet" href="../../css/all.css">
+  <link rel="stylesheet" href="../../css/data.css">
+  <script src="../../vendor/d3.min.js"></script>
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta name="theme-color" content="#0f172a">
+  <script src="../../js/offline.js" defer></script>
+</head>
+
+<body data-structure="Queue">
+  <div class="ui inverted menu">
+    <a class="item" href="../../index.html">
+      Back Home
+    </a>
+  </div>
+  <div class="page">
+    <div class="content">
+      <div id="queue">
+        <h1>Queue</h1>
+        <p>A <b>queue</b> is a linear collection with two ends: elements are added at
+          the <b>rear</b> and removed from the <b>front</b>, just like people waiting
+          in line.</p>
+        <p>Operations</p>
+        <ul>
+          <li><b>Enqueue:</b> add an element at the rear.</li>
+          <li><b>Dequeue:</b> remove and return the element at the front.</li>
+        </ul>
+        <p><mark>The first element enqueued is the first one dequeued &mdash; first in,
+          first out (FIFO).</mark></p>
+        <p><b>Priority queue:</b> a variant where each element carries a priority and the
+          highest-priority one is served first (ties keep arrival order). It is most
+          efficiently backed by a <a href="./Heap.html">heap</a>.</p>
+      </div>
+    </div>
+    <div class="display">
+      <div class="main-display">
+        <!-- Inputs and buttons are generated from js/structures/queue.js. -->
+        <div class="data-control">
+          <div id="notice"></div>
+        </div>
+        <div class="data-display">
+          <main></main>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../../js/pages/data-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Heap Sort</title>
+  <link rel="stylesheet" href="../../css/all.css">
+  <link rel="stylesheet" href="../../vendor/semantic.min.css">
+  <link rel="stylesheet" href="../../vendor/animate.min.css">
+  <link rel="icon" type="image/x-icon" href="../../img/pyramid.ico">
+  <script src="../../vendor/jquery.min.js"></script>
+  <script src="../../vendor/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="../../css/control.css">
+  <link rel="stylesheet" href="../../css/sort.css">
+  <script src="../../vendor/d3.min.js"></script>
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta name="theme-color" content="#0f172a">
+  <script src="../../js/offline.js" defer></script>
+</head>
+
+<body data-structure="HeapSort">
+  <div class="ui inverted menu">
+    <a class="item" href="../../index.html">
+      Back Home
+    </a>
+  </div>
+  <div class="page">
+    <div class="content">
+      <div id="heap">
+        <h1>Heap Sort</h1>
+        <p><b>Heap sort</b> is a comparison sort that behaves like a smarter <a href="./Selection-Sort.html">selection sort</a>: rather than scanning the unsorted region for the largest value each time, it keeps that region in a <a href="../data/Heap.html">heap</a> so the maximum is always at the root.</p>
+        <p>It runs in two phases: <mark>first build a max heap from the data; then repeatedly swap the root (the largest value) to the end and sift the heap down,</mark> shrinking the heap each time until the array is sorted.</p>
+        <p>Complexity</p>
+        <ul>
+          <li>Best, average &amp; worst case: O(n log n)</li>
+          <li>Space: O(1)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="display">
+      <div id="control-container">
+        <div class="btn-group">
+          <button type="button" class="btn new-button">&#10227 Generate New</button>
+          <button type="button" class="btn start-button">&#9205 Run</button>
+          <!-- Hidden Btn-->
+          <button type="button" class="btn restart-button" style="display:none">&#9209 Restart</button>
+          <button type="button" class="btn pause-button" style="display:none">&#9208 Pause</button>
+          <button type="button" class="btn resume-button" style="display:none">&#9199 Resume</button>
+        </div>
+        <div class="select-group">
+          <label for="speed">Select A Speed</label>
+          <select name="speed" id="speed">
+            <option class="speed1" value="1000">&#128012 Slow</option>
+            <option class="speed2" value="500" selected="selected">&#128099 Normal</option>
+            <option class="speed3" value="100">&#128663 Fast</option>
+            <option class="speed4" value="0">&#128640 Ludicrous</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <p>
+            <span>Array Size =></span>
+            <span class="size-value"></span>
+          </p>
+          <input id="size-slider" type="range" min="5" max="100" step=1 value="30">  
+        </div>
+        <div class="input-group">
+          <p>
+            <span>Number Range =></span>
+          <span><span class="range-value-1"></span> To <span class="range-value-2"></span></span>
+          </p>
+          <div id="range-slider"></div>
+        </div>
+        <div id="notice">
+          <div class="legend legend-pivot" style="display:none"><div class="color color-pivot"></div><div class="text text-pivot">Pivot</div></div>
+          <div class="legend legend-compare"><div class="color color-compare"></div><div class="text text-compare">Comparasion</div></div>
+          <div class="legend legend-swap"><div class="color color-swap"></div><div class="text text-swap">Swap</div></div>
+          <div class="legend legend-sorted"><div class="color color-sorted"></div><div class="text text-sorted">Sorted</div></div>
+        </div>
+      </div>
+      <main>
+        <svg></svg>
+      </main>
+    </div>
+  </div>
+</body>
+  <script type="module" src="../../js/pages/sort-page.js"></script>
+</html>

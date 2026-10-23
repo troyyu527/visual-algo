@@ -1,0 +1,11 @@
+{
+  "name": "visual-algo",
+  "version": "1.0.0",
+  "description": "Interactive data-structure and sorting-algorithm visualizations, animated with D3.js. Zero-build static site.",
+  "main": "index.html",
+  "scripts": {
+    "start": "python serve.py",
+    "dev": "python serve.py"
+  },
+  "author": "Troy Yu"
+}

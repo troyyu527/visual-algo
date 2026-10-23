@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Linked List</title>
+
+  <link rel="icon" type="image/x-icon" href="../../img/pyramid.ico">
+  <link rel="stylesheet" href="../../vendor/semantic.min.css">
+  <link rel="stylesheet" href="../../vendor/animate.min.css">
+  <link rel="stylesheet" href="../../css/all.css">
+  <link rel="stylesheet" href="../../css/data.css">
+  <script src="../../vendor/d3.min.js"></script>
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta name="theme-color" content="#0f172a">
+  <script src="../../js/offline.js" defer></script>
+</head>
+
+<body data-structure="LinkedList">
+  <div class="ui inverted menu">
+    <a class="item" href="../../index.html">
+      Back Home
+    </a>
+  </div>
+  <div class="page">
+    <div class="content">
+      <div id="linked-list">
+        <h1>Linked List</h1>
+        <p>A <b>linked list</b> stores a sequence as a chain of <b>nodes</b>.
+          <mark>Each node holds its own data plus a link (pointer) to the next node</mark> &mdash;
+          so the nodes need not sit next to each other in memory.</p>
+        <p>Variants</p>
+        <ul>
+          <li><b>Singly linked:</b> each node points only to the next. Supports
+            insertion, deletion, and traversal.</li>
+          <li><b>Doubly linked:</b> each node also points back to the previous one, so
+            the list can be walked in both directions.</li>
+          <li><b>Circular:</b> the last node points back to the first instead of to null.</li>
+        </ul>
+        <p>Because the nodes are linked rather than contiguous, inserting or removing one
+          is cheap &mdash; just rewire a couple of pointers, with no shifting. The
+          tradeoff: <mark>there is no random access &mdash; reaching the n-th node means
+          walking the chain from the head.</mark></p>
+      </div>
+    </div>
+    <div class="display">
+      <div class="main-display">
+        <!-- Inputs and buttons are generated from js/structures/linkedlist.js. -->
+        <div class="data-control">
+          <div id="notice"></div>
+        </div>
+        <div class="data-display">
+          <main></main>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../../js/pages/data-page.js"></script>
+</body>
+</html>

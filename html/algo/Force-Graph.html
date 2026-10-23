@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Force-Directed Graph Traversal</title>
+  <link rel="stylesheet" href="../../css/all.css">
+  <link rel="stylesheet" href="../../vendor/semantic.min.css">
+  <link rel="icon" type="image/x-icon" href="../../img/pyramid.ico">
+  <script src="../../vendor/jquery.min.js"></script>
+  <script src="../../vendor/d3.min.js"></script>
+  <script src="../../vendor/3d-force-graph.min.js"></script>
+  <link rel="stylesheet" href="../../css/control.css">
+  <link rel="stylesheet" href="../../css/sort.css">
+  <link rel="stylesheet" href="../../css/force-graph.css">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta name="theme-color" content="#0f172a">
+  <script src="../../js/offline.js" defer></script>
+</head>
+
+<body>
+  <div class="ui inverted menu">
+    <a class="item" href="../../index.html">Back Home</a>
+  </div>
+  <div class="page">
+    <div class="content">
+      <div id="force-intro">
+        <h1>3D Force-Directed Graph</h1>
+        <p>
+          A physics-based graph rendered in <b>real 3D with WebGL</b> (Three.js + d3-force-3d): nodes repel
+          each other, edges act like springs, and the system relaxes into a shape in three dimensions.
+          <b>Drag to orbit</b>, scroll to zoom, and drag a node to disturb the physics.
+        </p>
+        <p>
+          Pick a <b>Source</b> (blue) and a <b>Target</b> (pink) — use the <em>Click sets</em> dropdown, then
+          click any node. Press Run to find the shortest route between them. <mark>BFS</mark> explores
+          breadth-first; <mark>Dijkstra</mark> settles nodes in increasing distance and respects edge weights.
+          Explored edges emit <b>flowing particles</b>, and the final Source→Target path lights up green.
+        </p>
+        <b><p>Under the hood</p></b>
+        <ul>
+          <b><li>d3-force-3d — many-body + link forces in 3D</li></b>
+          <b><li>Three.js / WebGL — GPU-rendered spheres &amp; links</li></b>
+          <b><li>Orbit camera — drag, zoom, auto-rotate</li></b>
+        </ul>
+      </div>
+    </div>
+    <div class="display">
+      <div id="control-container">
+        <div class="btn-group">
+          <button type="button" class="btn new-button">&#10227 Generate New</button>
+          <button type="button" class="btn start-button">&#9205 Run</button>
+        </div>
+        <div class="select-group">
+          <label for="algo-select">Algorithm</label>
+          <select name="algo-select" id="algo-select">
+            <option value="BFS">Breadth-First Search</option>
+            <option value="Dijkstra">Dijkstra (shortest path)</option>
+          </select>
+        </div>
+        <div class="select-group">
+          <label for="click-mode">Click sets</label>
+          <select id="click-mode">
+            <option value="source">Source</option>
+            <option value="target">Target</option>
+          </select>
+        </div>
+        <div class="select-group">
+          <label for="speed">Select A Speed</label>
+          <select name="speed" id="speed">
+            <option value="1000">&#128012 Slow</option>
+            <option value="550" selected="selected">&#128099 Normal</option>
+            <option value="200">&#128663 Fast</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <p><span>Nodes =></span> <span class="count-value"></span></p>
+          <input id="node-count" type="range" min="6" max="30" step="1" value="16">
+        </div>
+        <div id="notice">
+          <div class="legend"><div class="color" style="background:#8a94a8"></div><div class="text">Unvisited</div></div>
+          <div class="legend"><div class="color" style="background:#38bdf8"></div><div class="text">Source</div></div>
+          <div class="legend"><div class="color" style="background:#f472b6"></div><div class="text">Target</div></div>
+          <div class="legend"><div class="color" style="background:#fbbf24"></div><div class="text">Frontier</div></div>
+          <div class="legend"><div class="color" style="background:#fff"></div><div class="text">Current</div></div>
+          <div class="legend"><div class="color" style="background:#475569"></div><div class="text">Visited</div></div>
+          <div class="legend"><div class="color" style="background:#34d399"></div><div class="text">Path</div></div>
+        </div>
+      </div>
+      <main>
+        <div id="graph3d"></div>
+      </main>
+    </div>
+  </div>
+</body>
+<script src="../../js/force-graph.js"></script>
+</html>

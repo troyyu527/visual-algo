@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tree</title>
+  <link rel="stylesheet" href="../../css/all.css">
+  <link rel="stylesheet" href="../../vendor/semantic.min.css">
+  <link rel="stylesheet" href="../../vendor/animate.min.css">
+  <link rel="icon" type="image/x-icon" href="../../img/pyramid.ico">
+  <script src="../../vendor/jquery.min.js"></script>
+  <link rel="stylesheet" href="../../css/data.css">
+  <script src="../../vendor/d3.min.js"></script>
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta name="theme-color" content="#0f172a">
+  <script src="../../js/offline.js" defer></script>
+</head>
+
+<body data-structure="Tree">
+  <div class="ui inverted menu">
+    <a class="item" href="../../index.html">
+      Back Home
+    </a>
+  </div>
+  <div class="page">
+    <div class="content">
+      <div id="tree">
+        <h1>Tree</h1>
+        <p>A <b>tree</b> is a hierarchy of connected <b>nodes</b>. Every node has exactly
+          one parent except the <b>root</b>, which has none, and each node may have any
+          number of children &mdash; so there are no cycles, only branches. The links
+          between nodes are called <b>edges</b>.</p>
+        <p>Applications: file systems, and the Document Object Model of HTML and XML pages.</p>
+        <p>A <b>binary tree</b> limits each node to at most two children. A
+          <b>Binary Search Tree (BST)</b> adds the ordering rule that makes search fast:
+          <mark>for every node, all keys in its left subtree are smaller and all keys in
+          its right subtree are larger.</mark></p>
+        <p>Traversals (try each with the <b>Travel</b> button)</p>
+        <ul>
+          <li><b>Depth-First</b>
+            <ul>
+              <li><b>Pre-order:</b> visit the node, then its left subtree, then its right.</li>
+              <li><b>In-order:</b> left subtree, then the node, then right &mdash; on a BST
+                this visits the keys <b>in sorted order</b>.</li>
+              <li><b>Post-order:</b> left subtree, then right, then the node.</li>
+            </ul>
+          </li>
+          <li><b>Breadth-First</b>
+            <ul>
+              <li><b>Level-order:</b> visit every node at one depth before moving to the next.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="display">
+      <div class="main-display">
+        <div class="data-control">
+          <input id="inputData" type="number" placeholder="Input data" min="-100" max="100">
+<input id="inputText" type="text" placeholder="Input data" maxlength="4" size="10">
+<div id="linkInput" class="inactive">
+  Connect/Remove <input id="source-node" type="text" placeholder="Source Node" size="10"> To
+  <input id="target-node" type="text" placeholder="Target Node" size="10"><br>
+</div>
+
+<input id="inputKey" type="text" placeholder="Input Key" maxlength="4">
+<input id="inputValue" type="text" placeholder="Input Value" maxlength="4">
+
+<button id="push" class="mini ui button blue" onclick="push()">Add/Push</button>
+<button id="rand" class="mini ui button blue" onclick="rand()">Add Random/Push</button>
+<button id="pop" class="mini ui button blue" onclick="pop()">Remove/Pop</button>
+<button id="unshift" class="mini ui button blue" onclick="unshift()">Add/Unshift</button>
+<button id="shift" class="mini ui button blue" onclick="shift()">Remove/Shift</button>
+<button id="set" class="mini ui button blue" onclick="setItem()">Set Item Key & Value</button>
+<button id="get" class="mini ui button blue" onclick="getItem()">Get Value from Key</button>
+<button id="get-link" class="mini ui button blue" onclick="getLink()">Add Link</button>
+<button id="del-node" class="mini ui button red" onclick="delNode()">Delete Node</button>
+<button id="del-link" class="mini ui button red" onclick="delLink()">Delete Link</button>
+<!-- Tree only: picks which documented traversal the Travel button animates.
+     Each value is a BinarySearchTree method name. -->
+<select id="travel-order" title="Traversal order">
+  <option value="preOrder" selected>Pre-Order (DFS)</option>
+  <option value="inOrder">In-Order (DFS)</option>
+  <option value="postOrder">Post-Order (DFS)</option>
+  <option value="levelOrder">Level-Order (BFS)</option>
+</select>
+<button id="travel" class="mini ui button brown" onclick="travel()">Travel</button>
+<button id="deleteData" class="mini ui button red" onclick="deleteData()">Delete Input</button>
+<button id="clear" class="mini ui button red" onclick="clearAll()">ClearAll</button>
+<div id="notice"></div>
+        </div>
+        <div class="data-display">
+          <main></main>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+  <script type="module" src="../../js/pages/data-svg.js"></script>
+</html>

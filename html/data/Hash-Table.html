@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Hash Table</title>
+  <link rel="stylesheet" href="../../css/all.css">
+  <link rel="stylesheet" href="../../vendor/semantic.min.css">
+  <link rel="stylesheet" href="../../vendor/animate.min.css">
+  <link rel="icon" type="image/x-icon" href="../../img/pyramid.ico">
+  <script src="../../vendor/jquery.min.js"></script>
+  <link rel="stylesheet" href="../../css/data.css">
+  <script src="../../vendor/d3.min.js"></script>
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta name="theme-color" content="#0f172a">
+  <script src="../../js/offline.js" defer></script>
+</head>
+
+<body data-structure="HashTable">
+  <div class="ui inverted menu">
+    <a class="item" href="../../index.html">
+      Back Home
+    </a>
+  </div>
+  <div class="page">
+    <div class="content">
+      <div id="hash-table">
+        <h1>Hash Table</h1>
+        <p>A <b>hash table</b> (or <b>hash map</b>) stores key&ndash;value pairs and
+          retrieves them in <b>average O(1)</b> time. <mark>A hash function turns each key
+          into an index &mdash; a bucket &mdash; where its value is kept</mark>, so a lookup
+          jumps straight to the right slot instead of scanning.</p>
+        <p><mark>Different keys can land in the same bucket &mdash; a collision</mark> &mdash;
+          so every hash table needs a way to resolve them:</p>
+        <p>Collision resolution</p>
+        <ul>
+          <li><b>Separate chaining:</b> each bucket holds a small list; colliding entries
+            are appended and searched by key. <i>(This demo uses chaining, with
+            index = number mod 10.)</i></li>
+          <li><b>Open addressing:</b> on a collision, probe the following buckets until an
+            empty one is found.</li>
+        </ul>
+        <p>On average this beats search trees and other lookup structures &mdash; at the
+          cost of storing nothing in sorted order.</p>
+      </div>
+    </div>
+    <div class="display">
+      <div class="main-display">
+        <div class="data-control">
+          <input id="inputData" type="number" placeholder="Input data" min="-100" max="100">
+<input id="inputText" type="text" placeholder="Input data" maxlength="4" size="10">
+<div id="linkInput" class="inactive">
+  Connect/Remove <input id="source-node" type="text" placeholder="Source Node" size="10"> To
+  <input id="target-node" type="text" placeholder="Target Node" size="10"><br>
+</div>
+
+<input id="inputKey" type="text" placeholder="Input Key" maxlength="4">
+<input id="inputValue" type="text" placeholder="Input Value" maxlength="4">
+
+<button id="push" class="mini ui button blue" onclick="push()">Add/Push</button>
+<button id="rand" class="mini ui button blue" onclick="rand()">Add Random/Push</button>
+<button id="pop" class="mini ui button blue" onclick="pop()">Remove/Pop</button>
+<button id="unshift" class="mini ui button blue" onclick="unshift()">Add/Unshift</button>
+<button id="shift" class="mini ui button blue" onclick="shift()">Remove/Shift</button>
+<button id="set" class="mini ui button blue" onclick="setItem()">Set Item Key & Value</button>
+<button id="get" class="mini ui button blue" onclick="getItem()">Get Value from Key</button>
+<button id="get-link" class="mini ui button blue" onclick="getLink()">Add Link</button>
+<button id="del-node" class="mini ui button red" onclick="delNode()">Delete Node</button>
+<button id="del-link" class="mini ui button red" onclick="delLink()">Delete Link</button>
+<button id="travel" class="mini ui button brown" onclick="travel()">Travel</button>
+<button id="deleteData" class="mini ui button red" onclick="deleteData()">Delete Input</button>
+<button id="clear" class="mini ui button red" onclick="clearAll()">ClearAll</button>
+<div id="notice"></div>
+        </div>
+        <div class="data-display">
+          <main></main>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+  <script type="module" src="../../js/pages/data-svg.js"></script>
+</html>

@@ -1,0 +1,166 @@
+/* ==================================================================
+   Sort / graph control panel — modern dark-theme controls.
+   ================================================================== */
+
+/* Stack the chart over the controls so the controls are ALWAYS visible,
+   regardless of how tall the description column is. (Only sort/graph pages
+   load this file, so data pages are unaffected.) */
+.display {
+  flex-direction: column;
+  gap: 12px;
+  height: 80vh;
+}
+
+#control-container {
+  display: flex;
+  flex-wrap: wrap;
+  position: static;
+  width: 100%;
+  order: 2;
+  flex-shrink: 0;
+  gap: 6px 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+#control-container .btn-group {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin: 5px;
+  gap: 8px;
+}
+#control-container .btn-group .btn {
+  font-family: inherit;
+  font-weight: 700;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(248, 250, 252, 0.95);
+  color: #0f172a;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(2, 6, 23, 0.35);
+  transition: transform 0.14s ease, box-shadow 0.14s ease, filter 0.14s ease;
+}
+#control-container .btn-group .btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+#control-container .btn-group .btn:active { transform: translateY(0); }
+/* Primary actions get the accent gradient. */
+#control-container .btn-group .start-button {
+  background: linear-gradient(135deg, #8b5cf6, #6366f1);
+  color: #fff;
+  border-color: transparent;
+}
+#control-container .btn-group .resume-button {
+  background: linear-gradient(135deg, #34d399, #059669);
+  color: #06231a;
+  border-color: transparent;
+}
+
+#control-container .select-group,
+#control-container .input-group {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin: 5px 10px;
+  gap: 6px;
+}
+#control-container .select-group label { font-size: 0.85rem; color: #94a3b8; }
+#control-container .select-group select {
+  font-family: inherit;
+  background: rgba(2, 6, 23, 0.55);
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  padding: 7px 12px;
+  cursor: pointer;
+  outline: none;
+}
+#control-container .select-group select option { background: #0f172a; color: #f1f5f9; font-size: medium; }
+
+#control-container .input-group .size-value,
+#control-container .input-group .count-value,
+#control-container .input-group .range-value-1,
+#control-container .input-group .range-value-2 {
+  color: #a78bfa;
+  font-weight: 800;
+}
+
+/* Native range input (array size). */
+#control-container .input-group input[type="range"] {
+  width: 200px;
+  height: 8px;
+  border-radius: 999px;
+  accent-color: #8b5cf6;
+  cursor: pointer;
+}
+
+/* jQuery-UI slider (number range). Structural position rules are included here
+   so jQuery-UI's own stylesheet isn't needed (offline/standalone build). */
+#control-container .input-group .ui-slider {
+  position: relative;
+  margin: 6px 5px;
+  height: 8px;
+  width: 200px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14) !important;
+  border: none !important;
+  cursor: pointer;
+}
+#control-container .input-group .ui-slider-handle {
+  position: absolute;
+  height: 17px;
+  width: 17px;
+  margin-left: -8.5px;
+  border-radius: 50%;
+  background: #8b5cf6 !important;
+  border: 2px solid #fff !important;
+  top: -5px;
+  box-shadow: 0 2px 8px rgba(2, 6, 23, 0.5);
+}
+#control-container .input-group .ui-slider-range {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6) !important;
+  border-radius: 999px;
+}
+
+/* Legend */
+#control-container #notice {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin: 8px 16px;
+  gap: 4px;
+}
+#control-container #notice .legend {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+}
+#control-container #notice .color {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+#control-container #notice .text {
+  color: #cbd5e1;
+  font-weight: 700;
+  font-family: inherit;
+  font-style: italic;
+  font-size: 0.85rem;
+}
+#control-container #notice .color-pivot { background-color: #c084fc; }
+#control-container #notice .color-compare { background-color: #ffffff; }
+#control-container #notice .color-swap { background-color: #ff4d4d; }
+#control-container #notice .color-sorted { background-color: #34d399; }
