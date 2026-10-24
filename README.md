@@ -5,7 +5,9 @@ you meet in a first algorithms course. Every structure steps through its own
 insert, search, and delete operations on screen, so you watch the shape of the
 data change instead of reading about it.
 
-**Live:** <http://troyyu527.github.io/visual-algo>
+**Live:** <https://troyyu527.github.io/visual-algo>
+
+![VisualAlgo home page: the data-structure and sorting-algorithm cards and the force-directed graph showcase](docs/images/screenshot.png)
 
 Built as a **zero-build static site** — no bundler, no transpiler, no
 `node_modules`. Open the folder on any web server and it runs. It also installs
